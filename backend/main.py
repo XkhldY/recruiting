@@ -18,4 +18,4 @@ app.add_middleware(
 
 @app.get("/api")
 def read_root():
-    return {"message": "hello gemini"}
+    return {"message": "hello gemini and the world"}
