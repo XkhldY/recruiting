@@ -1,37 +1,37 @@
 services:
+  # PostgreSQL Database Service
   - type: pserv
-    name: postgres
+    name: postgres-db
     env: postgres
+    plan: free # Explicitly use the free instance type
     postgres:
-      version: 15
+      version: "15"
 
+  # Backend Web Service (FastAPI)
   - type: web
-    name: backend
+    name: backend-service
     env: python
     runtime: docker
     dockerfilePath: ./backend/Dockerfile
-    repo: https://github.com/XkhldY/recruiting.git # CHANGE THIS
-    branch: master # CHANGE THIS
     healthCheckPath: /api
     envVars:
       - key: DATABASE_URL
         fromService:
           type: pserv
-          name: postgres
+          name: postgres-db
           property: connectionString
 
+  # Frontend Web Service (React)
   - type: web
-    name: frontend
+    name: frontend-service
     env: node
     runtime: docker
     dockerfilePath: ./frontend/Dockerfile
-    repo: https://github.com/XkhldY/recruiting.git # CHANGE THIS
-    branch: master # CHANGE THIS
     envVars:
       - key: REACT_APP_API_URL
         fromService:
           type: web
-          name: backend
+          name: backend-service
           property: url
     routes:
       - type: rewrite
