@@ -28,11 +28,4 @@ services:
     dockerfilePath: ./frontend/Dockerfile
     envVars:
       - key: REACT_APP_API_URL
-        fromService:
-          type: web
-          name: backend-service
-          property: url
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /index.html
+        value: https://backend-service.onrender.com
