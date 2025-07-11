@@ -1,12 +1,12 @@
-services:
-  # PostgreSQL Database Service
-  - type: pserv
-    name: postgres-db
-    env: postgres
-    plan: free # Explicitly use the free instance type
-    postgres:
-      version: "15"
+# render.yaml
 
+databases:
+  - name: recruiting-db
+    databaseName: recruiting_db
+    user: recruiting_user
+    plan: free
+
+services:
   # Backend Web Service (FastAPI)
   - type: web
     name: backend-service
@@ -16,9 +16,8 @@ services:
     healthCheckPath: /api
     envVars:
       - key: DATABASE_URL
-        fromService:
-          type: pserv
-          name: postgres-db
+        fromDatabase:
+          name: recruiting-db
           property: connectionString
 
   # Frontend Web Service (React)
