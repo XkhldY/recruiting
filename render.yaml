@@ -14,6 +14,7 @@ services:
     runtime: docker
     dockerfilePath: ./backend/Dockerfile
     healthCheckPath: /api
+    instanceType: starter # Explicitly set to free tier instance type
     envVars:
       - key: DATABASE_URL
         fromDatabase:
@@ -26,6 +27,7 @@ services:
     env: node
     runtime: docker
     dockerfilePath: ./frontend/Dockerfile
+    instanceType: starter # Explicitly set to free tier instance type
     envVars:
       - key: REACT_APP_API_URL
         value: https://backend-service.onrender.com
