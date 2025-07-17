@@ -6,6 +6,7 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
+    "https://frontend-service-recruiting.onrender.com",
 ]
 
 app.add_middleware(
