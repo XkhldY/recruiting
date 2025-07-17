@@ -30,4 +30,4 @@ services:
     instanceType: starter # Explicitly set to free tier instance type
     envVars:
       - key: REACT_APP_API_URL
-        value: http://backend-service:8000 # Internal URL for inter-service communication
+        value: https://backend-service-recruiting.onrender.com # Public URL for frontend to access backend
