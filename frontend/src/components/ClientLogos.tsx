@@ -16,15 +16,21 @@ const ClientLogos: React.FC = () => {
   }, []);
 
   return (
-    <div className="client-logos-container">
-      <div className="client-logos-slider">
-        {logos.map((logo, index) => (
-          <div className="client-logo" key={index}>
-            <img src={logo} alt={`Client logo ${index + 1}`} />
-          </div>
-        ))}
+    <section className="client-logos-section">
+      <div className="client-logos-header">
+        <h3 className="client-logos-title">Trusted by Industry Leaders</h3>
+        <p className="client-logos-subtitle">Join thousands of companies that trust TalentFlow</p>
       </div>
-    </div>
+      <div className="client-logos-container">
+        <div className="client-logos-slider">
+          {logos.map((logo, index) => (
+            <div className="client-logo" key={index}>
+              <img src={logo} alt={`Client logo ${index + 1}`} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 };
 
