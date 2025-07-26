@@ -1,0 +1,34 @@
+.client-logos-container {
+    overflow: hidden;
+    padding: 20px 0;
+    white-space: nowrap;
+    position: relative;
+    background-color: #ffffff;
+  }
+  
+  .client-logos-slider {
+    display: inline-block;
+    animation: slide 60s linear infinite;
+  }
+  
+  .client-logo {
+    display: inline-block;
+    margin: 0 20px;
+    height: 60px; 
+  }
+  
+  .client-logo img {
+    height: 100%;
+    width: auto;
+    vertical-align: middle;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  

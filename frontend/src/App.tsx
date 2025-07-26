@@ -1,5 +1,6 @@
-import React from 'react';
 import './index.css';
+import ClientLogos from './components/ClientLogos';
+const heroImage = '/hero-image.svg';
 
 const colors = {
   primary: '#5A67D8',
@@ -28,14 +29,19 @@ const Header = () => (
 );
 
 const HeroSection = () => (
-  <section style={{ textAlign: 'center', padding: '4rem 2rem', background: `linear-gradient(to right, #EBF4FF, ${colors.background})` }}>
-    <h1 style={{ fontSize: '3rem', margin: 0, color: colors.text }}>Your Modern Recruiting Software</h1>
-    <p style={{ fontSize: '1.2rem', color: '#666', marginTop: '1rem' }}>
-      Streamline your hiring process and find the best talent, faster.
-    </p>
-    <a href="#signup" style={{ display: 'inline-block', marginTop: '2rem', textDecoration: 'none', color: colors.white, backgroundColor: colors.primary, padding: '1rem 2rem', borderRadius: '5px', fontSize: '1.1rem' }}>
-      Start Free Trial
-    </a>
+  <section style={{ display: 'flex', alignItems: 'center', padding: '4rem 2rem', minHeight: '100vh' }}>
+    <div style={{ flex: 1, paddingRight: '2rem' }}>
+      <h1 style={{ fontSize: '3.5rem', margin: 0, color: colors.text }}>Hire Top Remote Talent</h1>
+      <p style={{ fontSize: '1.2rem', color: '#666', marginTop: '1rem' }}>
+        Get access to our pool of handpicked, pre-vetted remote software engineers, designers, and product managers.
+      </p>
+      <a href="#signup" style={{ display: 'inline-block', marginTop: '2rem', textDecoration: 'none', color: colors.white, backgroundColor: colors.primary, padding: '1rem 2rem', borderRadius: '5px', fontSize: '1.1rem' }}>
+        Hire Talent
+      </a>
+    </div>
+    <div style={{ flex: 1 }}>
+      <img src={heroImage} alt="Remote Talent" style={{ width: '100%', borderRadius: '8px' }} />
+    </div>
   </section>
 );
 
@@ -108,7 +114,7 @@ const PricingSection = () => (
 );
 
 const BlogSection = () => (
-  <section id="blog" style={{ padding: '4rem 2rem', backgroundColor: colors.background }}>
+  <section id="blog" style={{ padding: '4rem 2rem' }}>
     <h2 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '3rem', color: colors.text }}>From Our Blog</h2>
     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '2rem', maxWidth: '1200px', margin: '0 auto' }}>
       {/* Blog Post 1 */}
@@ -180,9 +186,10 @@ const Footer = () => (
 
 function App() {
   return (
-    <div style={{ backgroundColor: colors.background, color: colors.text }}>
+    <div style={{ background: `linear-gradient(to bottom, ${colors.background}, #E2E8F0)`, color: colors.text }}>
       <Header />
       <HeroSection />
+      <ClientLogos />
       <FeaturesSection />
       <PricingSection />
       <BlogSection />
