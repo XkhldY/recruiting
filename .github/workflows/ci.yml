@@ -3,9 +3,13 @@ name: CI/CD Pipeline
 on:
   push:
     branches:
+      - main
+      - master
       - wed
   pull_request:
     branches:
+      - main
+      - master
       - wed
 
 jobs:
